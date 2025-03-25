@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            margin-top: 10px;
+            margin-bottom: 5px;
+            text-align: center;
+            color: #555;
+        }
+
+        .button-link {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        .light-blue {
+            background-color: rgb(154, 231, 231);
+        }
+
+        .light-green {
+            background-color: rgb(135, 230, 149);
+        }
+
+        .clip-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .clip-title {
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .actions {
+            text-align: center;
+        }
+
+        .actions a {
+            text-decoration: none;
+            color: #007bff;
+            margin: 0 5px;
+        }
+
+        .actions a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Toshkent Metro bekatlari API</h1>
+    <h1 class="button-link light-blue">
+        <a href="{% url 'list' %}">List ga o'tish</a>
+    </h1>
+    <h1 class="button-link light-green">
+        <a href="{% url 'create' %}">Create ga o'tish</a>
+    </h1>
+    <br>
+    <h2>Metrolar ro'yxati delete va Update uchun:</h2>
+    {% for i in metro %}
+    <div class="clip-item">
+        <h1 class="clip-title">
+            {{ i.name }}
+        </h1>
+        <div class="actions">
+            <a href="{% url 'update' i.id %}">Update ga o'tish</a>
+            <br>
+            <a href="{% url 'delete' i.id %}">Delete ga o'tish</a>
+        </div>
+    </div>
+    {% endfor %}
+</body>
+</html>
