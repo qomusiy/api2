@@ -70,27 +70,15 @@
         }
     </style>
 </head>
-<body>
-    <h1>Toshkent Metro bekatlari API</h1>
-    <h1 class="button-link light-blue">
-        <a href="{% url 'list' %}">List ga o'tish</a>
-    </h1>
-    <h1 class="button-link light-green">
-        <a href="{% url 'create' %}">Create ga o'tish</a>
-    </h1>
-    <br>
-    <h2>Metrolar ro'yxati delete va Update uchun:</h2>
+<body><<
+    <a href="{% url 'listview' %}">List ga o'tish</a>>>|<<
+    <a href="{% url 'createview' %}">Create ga o'tish</a>>>|
     {% for i in metro %}
-    <div class="clip-item">
-        <h1 class="clip-title">
-            {{ i.name }}
-        </h1>
-        <div class="actions">
-            <a href="{% url 'update' i.id %}">Update ga o'tish</a>
-            <br>
-            <a href="{% url 'delete' i.id %}">Delete ga o'tish</a>
-        </div>
-    </div>
+    <h3>Metro name: {{ i.name }}</h3><<
+    <a href="{% url 'updateview' i.id %}">Update ga o'tish</a>>>|<<
+    <a href="{% url 'detailview' i.id %}">Detailga ga o'tish</a>>>|<<
+    <a href="{% url 'deleteview' i.id %}">Update ga o'tish</a>>>
     {% endfor %}
+   
 </body>
 </html>
